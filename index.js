@@ -7,15 +7,13 @@ function formatGrid(gridPerSide){
     const divParent=document.createElement('div');
     divParent.classList.add(`divParent`);
     divContainer.appendChild(divParent);
-        for(let i=0;i<=gridPerSide-1;i++){
+        for(let j=0;j<=gridPerSide-1;j++){
             const divChild=document.createElement('div');
             divChild.classList.add(`divChild`);
             divParent.appendChild(divChild);
 
             divChild.addEventListener('mouseover',(e)=>{
-                e.target.style.backgroundColor='#fcb103';
-            divChild.addEventListener('museout',(e)=>{
-            });
+                e.target.style.backgroundColor=`rgb(${getRgbNumber()},${getRgbNumber()},${getRgbNumber()})`;
             });
     }
 }}
@@ -41,3 +39,8 @@ genGridBtn.addEventListener('click',()=>{
 
 //Alert until input number is valid
 let validNumberRequired= new Event('click');
+
+//random number generator to genarate random color
+function getRgbNumber(){
+    return Math.floor(Math.random()*256);
+}
